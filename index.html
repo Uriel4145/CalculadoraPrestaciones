@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora de Prestaciones Laborales</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <header class="encabezado">
+        <h1>Calculadora de Prestaciones Laborales</h1>
+        <p>Legislación Laboral de El Salvador</p>
+    </header>
+
+    <main>
+
+        <!-- BLOQUE 1 -->
+        <section class="bloque">
+
+            <h2>1. Datos financieros y antigüedad</h2>
+
+            <div class="campo">
+                <label for="salario">
+                    Ingreso mensual (USD)
+                </label>
+
+                <input
+                    type="number"
+                    id="salario"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ejemplo: 600.00"
+                >
+            </div>
+
+            <div class="fila">
+
+                <div class="campo">
+                    <label for="anios">
+                        Años laborados
+                    </label>
+
+                    <input
+                        type="number"
+                        id="anios"
+                        min="0"
+                        step="1"
+                        placeholder="0"
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="meses">
+                        Meses laborados
+                    </label>
+
+                    <input
+                        type="number"
+                        id="meses"
+                        min="0"
+                        max="11"
+                        step="1"
+                        placeholder="0"
+                    >
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BLOQUE 2 -->
+        <section class="bloque">
+
+            <h2>
+                2. Causa de finalización de la relación laboral
+            </h2>
+
+            <div class="opciones">
+
+                <label class="opcion">
+
+                    <input
+                        type="radio"
+                        name="tipoCierre"
+                        value="despido"
+                        checked
+                    >
+
+                    <span>
+                        Despido injustificado
+                    </span>
+
+                </label>
+
+                <label class="opcion">
+
+                    <input
+                        type="radio"
+                        name="tipoCierre"
+                        value="renuncia"
+                    >
+
+                    <span>
+                        Renuncia voluntaria
+                    </span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- BLOQUE 3 -->
+        <section class="bloque">
+
+            <h2>
+                3. Jornadas extraordinarias y días especiales
+            </h2>
+
+            <div class="campo">
+
+                <label for="horasDiurnas">
+                    Horas extras diurnas
+                </label>
+
+                <input
+                    type="number"
+                    id="horasDiurnas"
+                    min="0"
+                    step="0.01"
+                    placeholder="0"
+                >
+
+            </div>
+
+            <div class="campo">
+
+                <label for="horasNocturnas">
+                    Horas extras nocturnas
+                </label>
+
+                <input
+                    type="number"
+                    id="horasNocturnas"
+                    min="0"
+                    step="0.01"
+                    placeholder="0"
+                >
+
+            </div>
+
+            <div class="campo">
+
+                <label for="asuetos">
+                    Días de asueto laborados
+                </label>
+
+                <input
+                    type="number"
+                    id="asuetos"
+                    min="0"
+                    step="1"
+                    placeholder="0"
+                >
+
+            </div>
+
+            <div class="campo">
+
+                <label for="descansos">
+                    Días de descanso semanal laborados
+                </label>
+
+                <input
+                    type="number"
+                    id="descansos"
+                    min="0"
+                    step="1"
+                    placeholder="0"
+                >
+
+            </div>
+
+            <label class="opcion no-aplica">
+
+                <input
+                    type="checkbox"
+                    id="noAplica"
+                >
+
+                <span>
+                    No aplica
+                </span>
+
+            </label>
+
+        </section>
+
+
+        <!-- BOTÓN -->
+        <button
+            type="button"
+            id="btnCalcular"
+        >
+            Calcular liquidación
+        </button>
+
+
+        <!-- RESULTADOS -->
+        <section
+            id="resultados"
+            class="bloque resultados"
+        >
+
+            <h2>
+                Resultados de la liquidación
+            </h2>
+
+            <div class="resultado">
+                <span>
+                    Vacación proporcional:
+                </span>
+
+                <strong id="resultadoVacacion">
+                    $0.00
+                </strong>
+            </div>
+
+            <div class="resultado">
+                <span>
+                    Aguinaldo proporcional:
+                </span>
+
+                <strong id="resultadoAguinaldo">
+                    $0.00
+                </strong>
+            </div>
+
+            <div class="resultado">
+                <span id="textoIndemnizacion">
+                    Indemnización:
+                </span>
+
+                <strong id="resultadoIndemnizacion">
+                    $0.00
+                </strong>
+            </div>
+
+            <div class="resultado">
+                <span>
+                    Horas extras diurnas:
+                </span>
+
+                <strong id="resultadoDiurnas">
+                    $0.00
+                </strong>
+            </div>
+
+            <div class="resultado">
+                <span>
+                    Horas extras nocturnas:
+                </span>
+
+                <strong id="resultadoNocturnas">
+                    $0.00
+                </strong>
+            </div>
+
+            <div class="resultado">
+                <span>
+                    Días de asueto laborados:
+                </span>
+
+                <strong id="resultadoAsuetos">
+                    $0.00
+                </strong>
+            </div>
+
+            <div class="resultado">
+                <span>
+                    Días de descanso semanal:
+                </span>
+
+                <strong id="resultadoDescansos">
+                    $0.00
+                </strong>
+            </div>
+
+            <div class="total">
+                <span>
+                    Total de la liquidación:
+                </span>
+
+                <strong id="resultadoTotal">
+                    $0.00
+                </strong>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Calculadora de Prestaciones Laborales
+        </p>
+
+        <p>
+            El Salvador - 2026
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
